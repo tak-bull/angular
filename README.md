@@ -1,18 +1,17 @@
 # angular
 
 Payment gateway Redirect API  
-
-ממשק זה מתאים בעיקר לאתרי סחר אלקטרוני עם עגלת קניות או מוצרים המנוהלים בצד לאפליקציה של בית העסק.
-במידה ואין באתר ניהול מוצרים מומלץ להשתמש בדף תשלום 
-ממשק זה תומך באפשרויות הבאות:
-•	חיוב כרטיס אשראי
-•	חיוב ויצירת טוקן לחיוב עתידי 
-תיאור תהליך:
-•	שליחת בקשה לחיוב (הזמנה)
-•	המערכת תחזיר מזהה איחודי של ההזמנה 
-•	יש להפנות את הרוכש אל דף תשלום עם המזהה הייחודי של ההזמנה
-•	בסיום הרכישה המערכת תפנה את הרוכש לדף תודה (במידה וצוין על ידי הסוחר אחרת ברירת מחדל של המערכת)
-•	כמו כן מערכת "תקבול"  עובדת עם IPN ( instant payment notification) על הרוכש להגדיר  כתובת באתר בה הוא יקבל את האישור הסופי של סגירת עסקה כולל מזהה של ההזמה במערכת תקבול עם המזהה של ההזמנה במערכת של הסוחר
-•	ניתן לגשת לפרטי הזמנה לפי המזהה איחודי שהתקבל בIPN
-
+Pay page redirect interface
+This interface is primarily for e-commerce websites with a shopping cart or products that are managed beside an application for a business place
+If there is no product management on the website it is recommended to use paypage 
+this interface supports the following options :
+ credit card transactions 
+ tokenization for future transactions
+Process description :
+Send request for a transaction
+The system brings back a unique ID
+You need to redirect the client to the pay page with the unique ID 
+At the end of the transactions the system will redirect the client to a thank you page
+Tak bull system works with an ipn instant payment notification the client must define an address in the side in which it will get the final approval of the transaction including an ID of the order in a couple with a unique ID in the merchant system
+The order can be accessed by the unique ID from the ipn
 

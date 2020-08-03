@@ -52,11 +52,10 @@ export class OrderVM implements IOrderVM {
     firstPaymentamount!: number;
     folowedPaymentamount!: number;
     comments?: string | undefined;
-    paypal?: Paypal | undefined;
+   
     products?: ProductVm[] | undefined;
     creditCard?: CreditCardVm | undefined;
-    transactions?: TransactionVM[] | undefined;
-
+    
     constructor(data?: IOrderVM) {
         if (data) {
             for (var property in data) {
@@ -121,18 +120,14 @@ export class OrderVM implements IOrderVM {
             this.firstPaymentamount = _data["firstPaymentamount"];
             this.folowedPaymentamount = _data["folowedPaymentamount"];
             this.comments = _data["comments"];
-            this.paypal = _data["paypal"] ? Paypal.fromJS(_data["paypal"]) : <any>undefined;
+          
             if (Array.isArray(_data["products"])) {
                 this.products = [] as any;
                 for (let item of _data["products"])
                     this.products!.push(ProductVm.fromJS(item));
             }
             this.creditCard = _data["creditCard"] ? CreditCardVm.fromJS(_data["creditCard"]) : <any>undefined;
-            if (Array.isArray(_data["transactions"])) {
-                this.transactions = [] as any;
-                for (let item of _data["transactions"])
-                    this.transactions!.push(TransactionVM.fromJS(item));
-            }
+           
         }
     }
 
@@ -198,18 +193,14 @@ export class OrderVM implements IOrderVM {
         data["firstPaymentamount"] = this.firstPaymentamount;
         data["folowedPaymentamount"] = this.folowedPaymentamount;
         data["comments"] = this.comments;
-        data["paypal"] = this.paypal ? this.paypal.toJSON() : <any>undefined;
+       
         if (Array.isArray(this.products)) {
             data["products"] = [];
             for (let item of this.products)
                 data["products"].push(item.toJSON());
         }
         data["creditCard"] = this.creditCard ? this.creditCard.toJSON() : <any>undefined;
-        if (Array.isArray(this.transactions)) {
-            data["transactions"] = [];
-            for (let item of this.transactions)
-                data["transactions"].push(item.toJSON());
-        }
+       
         return data; 
     }
 }
@@ -267,9 +258,7 @@ export interface IOrderVM {
     isPaymentsEnabled: boolean;
     firstPaymentamount: number;
     folowedPaymentamount: number;
-    comments?: string | undefined;
-    paypal?: Paypal | undefined;
+    comments?: string | undefined;    
     products?: ProductVm[] | undefined;
-    creditCard?: CreditCardVm | undefined;
-    transactions?: TransactionVM[] | undefined;
+    creditCard?: CreditCardVm | undefined;    
 }

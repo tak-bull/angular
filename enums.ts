@@ -39,3 +39,16 @@ export enum RecuringInterval {
     Monthly = 3,
     Annual = 4,
 }
+
+export enum PaymentMethodType {
+    Unknown = 0,
+    Cash = 1,
+    Check = 2,
+    CreditCard = 3,
+    BankTranzaction = 4,
+    Vouchers = 5,
+    SwapVouchers = 6,
+    Banknote = 7,
+    DirectDebit = 8,
+    Other = 9,
+}
